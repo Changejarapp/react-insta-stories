@@ -32,6 +32,7 @@ export default function () {
     onPrevious,
     onNext,
     onStoryChange,
+    touchDebounceThreshold,
   } = useContext<GlobalCtx>(GlobalContext);
   const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
@@ -132,9 +133,10 @@ export default function () {
 
   const debouncePause = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
+    const debounceThresholdMS = (touchDebounceThreshold != undefined) ? touchDebounceThreshold : 200;
     mousedownId.current = setTimeout(() => {
       toggleState("pause");
-    }, 200);
+    }, debounceThresholdMS);
   };
 
   const mouseUp =

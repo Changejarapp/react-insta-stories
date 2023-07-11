@@ -28,6 +28,7 @@ export interface ReactInstaStoriesProps {
   onStoryChange?: Function;
   keyboardNavigation?: boolean;
   preventDefault?: boolean;
+  touchDebounceThreshold?: number;
 }
 
 export interface GlobalCtx {
@@ -57,6 +58,7 @@ export interface GlobalCtx {
   onStoryChange?: Function;
   keyboardNavigation?: boolean;
   preventDefault?: boolean;
+  touchDebounceThreshold?: number;
 }
 
 type NumberOrString = number | string;
