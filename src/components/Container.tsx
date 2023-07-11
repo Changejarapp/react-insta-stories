@@ -87,14 +87,14 @@ export default function () {
 
   const previous = () => {
     if (onPrevious != undefined) {
-      onPrevious();
+      onPrevious(currentId - 1);
     }
     setCurrentIdWrapper((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
   const next = (options?: { isSkippedByUser?: boolean }) => {
     if (onNext != undefined && options?.isSkippedByUser) {
-      onNext();
+      onNext(currentId + 1);
     }
     // Check if component is mounted - for issue #130 (https://github.com/mohitk05/react-insta-stories/issues/130)
     if (isMounted()) {
