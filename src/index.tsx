@@ -30,6 +30,7 @@ const ReactInstaStories = function (props: ReactInstaStoriesProps) {
         onAllStoriesEnd: props.onAllStoriesEnd,
         onNext: props.onNext,
         onPrevious: props.onPrevious,
+        onStoryChange: props.onStoryChange,
         keyboardNavigation: props.keyboardNavigation,
         preventDefault: props.preventDefault
     }

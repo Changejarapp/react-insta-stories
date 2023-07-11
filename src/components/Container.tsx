@@ -30,7 +30,8 @@ export default function () {
     storyContainerStyles = {},
     onAllStoriesEnd,
     onPrevious,
-    onNext
+    onNext,
+    onStoryChange,
   } = useContext<GlobalCtx>(GlobalContext);
   const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
@@ -66,6 +67,12 @@ export default function () {
       };
     }
   }, [keyboardNavigation]);
+
+  useEffect(() => {
+    if (onStoryChange != undefined) {
+      onStoryChange(currentId, stories);
+    }
+  }, [currentId]);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
